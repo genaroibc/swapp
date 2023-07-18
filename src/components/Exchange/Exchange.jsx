@@ -30,7 +30,7 @@ export function Exchange({ pools }) {
   const [toToken, setToToken] = useState("")
   const [resetState, setResetState] = useState(false)
 
-  const fromValueBN = parseUnits(fromValue)
+  const fromValueBN = parseUnits(fromValue || "0")
   const availableTokens = getAvailableTokens(pools)
   const counterpartTokens = getCounterpartTokens(pools, fromToken)
   const pairAddress = findPoolByTokens(pools, fromToken, toToken)?.address ?? ""
@@ -149,19 +149,19 @@ export function Exchange({ pools }) {
       {isApprovalNeeded && !isSwapping ? (
         <button
           disabled={!canApprove}
-          onClick={onSwapRequested}
+          onClick={onApproveRequested}
           className={`${
             canApprove
               ? "bg-site-pink text-white"
               : "bg-site-dim2 text-site-dim2"
           } ${styles.actionButton}`}
         >
-          {isApproving ? "approving" : "approve"}
+          {isApproving ? "approving..." : "approve"}
         </button>
       ) : (
         <button
           disabled={!canSwap}
-          onClick={onApproveRequested}
+          onClick={onSwapRequested}
           className={`${
             canSwap ? "bg-site-pink text-white" : "bg-site-dim2 text-site-dim2"
           } ${styles.actionButton}`}
@@ -170,7 +170,7 @@ export function Exchange({ pools }) {
             ? "swapping..."
             : hasEnoughBalance
             ? "swap"
-            : "insufficient balance"}
+            : "Insufficient balance"}
         </button>
       )}
 
