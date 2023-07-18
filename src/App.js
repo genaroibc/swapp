@@ -8,7 +8,7 @@ import { usePools } from "./hooks"
 
 const App = () => {
   const { account } = useEthers()
-  const { poolsAreLoading, pools } = usePools()
+  const { loading, pools } = usePools()
 
   return (
     <main className={styles.container}>
@@ -34,7 +34,7 @@ const App = () => {
               <div className="pink_gradient" />
               <section className={styles.exchange}>
                 {account ? (
-                  poolsAreLoading ? (
+                  loading ? (
                     <Loader title="Loading pools" />
                   ) : (
                     <Exchange pools={pools} />
