@@ -1,4 +1,4 @@
-import { formatUnits } from "ethers/lib/utils"
+import { formatUnits, parseUnits } from "ethers/lib/utils"
 import styles from "../../styles"
 
 export function Balance({ tokenBalance }) {
@@ -8,7 +8,7 @@ export function Balance({ tokenBalance }) {
         {tokenBalance && (
           <>
             <span className={styles.balanceBold}>Balance: </span>
-            {formatUnits(tokenBalance)}
+            {formatUnits(tokenBalance ?? parseUnits("0"))}
           </>
         )}
       </p>

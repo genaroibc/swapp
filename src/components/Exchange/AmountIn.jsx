@@ -1,4 +1,4 @@
-import { useEffect, useId, useRef, useState } from "react"
+import { useEffect, useRef, useState } from "react"
 import { chevronDown } from "../../assets"
 import styles from "../../styles"
 import { useOnClickOutside } from "../../utils"
@@ -11,8 +11,6 @@ export function AmountIn({
   currencies,
   isSwapping
 }) {
-  const amountInputId = useId()
-
   const [showList, setShowList] = useState(false)
   const [selectedCurrency, setSelectedCurrency] = useState("select")
 
@@ -30,8 +28,6 @@ export function AmountIn({
     <div className={styles.amountContainer}>
       <input
         type="number"
-        name={amountInputId}
-        id={amountInputId}
         placeholder="0.0"
         value={value}
         disabled={isSwapping}

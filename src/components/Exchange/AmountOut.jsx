@@ -1,8 +1,9 @@
-import { useEffect, useId, useRef, useState } from "react"
+import { useState, useEffect, useRef } from "react"
+import { formatUnits } from "ethers/lib/utils"
+
 import { chevronDown } from "../../assets"
 import styles from "../../styles"
-import { useOnClickOutside, useAmountsOut } from "../../utils"
-import { formatUnits } from "ethers/lib/utils"
+import { useAmountsOut, useOnClickOutside } from "../../utils"
 
 export function AmountOut({
   fromToken,
@@ -13,8 +14,6 @@ export function AmountOut({
   onSelect,
   currencies
 }) {
-  const amountInputId = useId()
-
   const [showList, setShowList] = useState(false)
   const [selectedCurrency, setSelectedCurrency] = useState("select")
 
@@ -36,8 +35,6 @@ export function AmountOut({
     <div className={styles.amountContainer}>
       <input
         type="number"
-        name={amountInputId}
-        id={amountInputId}
         placeholder="0.0"
         value={formatUnits(amountOut)}
         disabled
@@ -62,24 +59,22 @@ export function AmountOut({
 
         {showList && (
           <ul ref={ref} className={styles.currencyList}>
-            {Object.entries(currencies)
-              .map()
-              .map(([token, tokenName]) => (
-                <li
-                  key={token}
-                  className={styles.currencyListItem}
-                  onClick={() => {
-                    if (typeof onSelect === "function") {
-                      onSelect(token)
-                    }
+            {Object.entries(currencies).map(([token, tokenName]) => (
+              <li
+                key={token}
+                className={styles.currencyListItem}
+                onClick={() => {
+                  if (typeof onSelect === "function") {
+                    onSelect(token)
+                  }
 
-                    setSelectedCurrency(tokenName)
-                    setShowList(false)
-                  }}
-                >
-                  {tokenName}
-                </li>
-              ))}
+                  setSelectedCurrency(tokenName)
+                  setShowList(false)
+                }}
+              >
+                {tokenName}
+              </li>
+            ))}
           </ul>
         )}
       </div>
