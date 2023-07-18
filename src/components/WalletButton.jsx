@@ -3,29 +3,23 @@ import styles from "../styles"
 import { useEffect, useState } from "react"
 
 export function WalletButton() {
-  const [displayAccountAddress, setDisplayAccountAddress] = useState(null)
+  const [displayAccountAddress, setDisplayAccountAddress] = useState("")
 
   const { ens } = useLookupAddress()
   const { account, activateBrowserWallet, deactivate } = useEthers()
 
   const handleClick = () => {
-    if (account) {
-      return deactivate()
-    }
+    if (!account) return activateBrowserWallet()
 
-    activateBrowserWallet()
+    deactivate()
   }
 
   useEffect(() => {
-    if (ens) {
-      return setDisplayAccountAddress(ens)
-    }
+    if (ens) return setDisplayAccountAddress(ens)
 
-    if (account) {
-      return setDisplayAccountAddress(shortenAddress(account))
-    }
+    if (account) return setDisplayAccountAddress(shortenAddress(account))
 
-    setDisplayAccountAddress(null)
+    setDisplayAccountAddress("")
   }, [account, ens, setDisplayAccountAddress])
 
   return (
