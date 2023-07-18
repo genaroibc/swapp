@@ -6,12 +6,12 @@ export async function getFactoryInfo({ factoryAddress, instance }) {
 
   const factoryInfo = {
     allPairs: [],
-    fee: await factory.methods.feeTo().call(),
+    feeTo: await factory.methods.feeTo().call(),
     feeToSetter: await factory.methods.feeToSetter().call(),
     allPairsLength: await factory.methods.allPairsLength().call()
   }
 
-  for (let i = 0; i < factoryInfo.allPairsLength.length; i++) {
+  for (let i = 0; i < factoryInfo.allPairsLength; i++) {
     factoryInfo.allPairs[i] = await factory.methods.allPairs(i).call()
   }
 
