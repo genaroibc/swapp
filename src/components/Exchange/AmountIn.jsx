@@ -55,26 +55,24 @@ export function AmountIn({
 
         {showList && (
           <ul ref={ref} className={styles.currencyList}>
-            {Object.entries(currencies)
-              .map()
-              .map(([token, tokenName]) => (
-                <li
-                  key={token}
-                  className={`${styles.currencyListItem} ${
-                    selectedCurrency === tokenName ? "bg-site-dim2" : ""
-                  } cursor-pointer`}
-                  onClick={() => {
-                    if (typeof onSelect === "function") {
-                      onSelect(token)
-                    }
+            {Object.entries(currencies).map(([token, tokenName]) => (
+              <li
+                key={token}
+                className={`${styles.currencyListItem} ${
+                  selectedCurrency === tokenName ? "bg-site-dim2" : ""
+                } cursor-pointer`}
+                onClick={() => {
+                  if (typeof onSelect === "function") {
+                    onSelect(token)
+                  }
 
-                    setSelectedCurrency(tokenName)
-                    setShowList(false)
-                  }}
-                >
-                  {tokenName}
-                </li>
-              ))}
+                  setSelectedCurrency(tokenName)
+                  setShowList(false)
+                }}
+              >
+                {tokenName}
+              </li>
+            ))}
           </ul>
         )}
       </div>
