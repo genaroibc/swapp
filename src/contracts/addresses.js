@@ -2,38 +2,38 @@
  * See all ids below
  * https://ethereum.stackexchange.com/questions/17051/how-to-select-a-network-id-or-is-there-a-list-of-network-ids
  */
-export const GOERLI_ID = 5;
-export const KOVAN_ID = 42;
-export const MAINNET_ID = 1;
-export const RINKEBY_ID = 4;
-export const ROPSTEN_ID = 3;
+export const GOERLI_ID = 5
+export const KOVAN_ID = 42
+export const MAINNET_ID = 1
+export const RINKEBY_ID = 4
+export const ROPSTEN_ID = 3
 
 const commonContracts = {
   factory: "0x5C69bEe701ef814a2B6a3EDD4B1652CB9cc5aA6f",
   router01: "0xf164fC0Ec4E93095b804a4795bBe1e041497b92a",
-  router02: "0x7a250d5630B4cF539739dF2C5dAcb4c659F2488D",
-};
+  router02: "0x7a250d5630B4cF539739dF2C5dAcb4c659F2488D"
+}
 
-export default {
+const addresses = {
   [GOERLI_ID]: {
     pairs: {
-      "DAI-WETH": "0x8F609d85ebC64316B0B2f9E53c11b4e48B7A06d2",
+      "DAI-WETH": "0x8F609d85ebC64316B0B2f9E53c11b4e48B7A06d2"
     },
     tokens: {
       DAI: "0x697Ed3E98aaeCFa3121F536251F9D500de159dBa",
-      WETH: "0xB4FBF271143F4FBf7B91A5ded31805e42b2208d6",
+      WETH: "0xB4FBF271143F4FBf7B91A5ded31805e42b2208d6"
     },
-    ...commonContracts,
+    ...commonContracts
   },
   [KOVAN_ID]: {
     pairs: {
-      "DAI-WETH": "0xB10cf58E08b94480fCb81d341A63295eBb2062C2",
+      "DAI-WETH": "0xB10cf58E08b94480fCb81d341A63295eBb2062C2"
     },
     tokens: {
       DAI: "0x4F96Fe3b7A6Cf9725f59d353F723c1bDb64CA6Aa",
-      WETH: "0xd0A1E359811322d97991E03f863a0C30C2cF029C",
+      WETH: "0xd0A1E359811322d97991E03f863a0C30C2cF029C"
     },
-    ...commonContracts,
+    ...commonContracts
   },
   [MAINNET_ID]: {
     pairs: {
@@ -46,7 +46,7 @@ export default {
       "USDC-WETH": "0xB4e16d0168e52d35CaCD2c6185b44281Ec28C9Dc",
       "USDC-USDT": "0x3041CbD36888bECc7bbCBc0045E3B1f144466f5f",
       "WBTC-WETH": "0xBb2b8038a1640196FbE3e38816F3e67Cba72D940",
-      "WETH-AMPL": "0xc5be99A02C6857f9Eac67BbCE58DF5572498F40c",
+      "WETH-AMPL": "0xc5be99A02C6857f9Eac67BbCE58DF5572498F40c"
     },
     tokens: {
       AMPL: "0xD46bA6D942050d489DBd938a2C909A5d5039A161",
@@ -59,28 +59,30 @@ export default {
       USDC: "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
       USDT: "0xdAC17F958D2ee523a2206206994597C13D831ec7",
       wBTC: "0x2260FAC5E5542a773Aa44fBCfeDf7C193bc2C599",
-      WETH: "0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2",
+      WETH: "0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2"
     },
-    ...commonContracts,
+    ...commonContracts
   },
   [RINKEBY_ID]: {
     pairs: {
-      "DAI-WETH": "0x8B22F85d0c844Cf793690F6D9DFE9F11Ddb35449",
+      "DAI-WETH": "0x8B22F85d0c844Cf793690F6D9DFE9F11Ddb35449"
     },
     tokens: {
       DAI: "0xc7AD46e0b8a400Bb3C915120d284AafbA8fc4735",
-      WETH: "0xc778417E063141139Fce010982780140Aa0cD5Ab",
+      WETH: "0xc778417E063141139Fce010982780140Aa0cD5Ab"
     },
-    ...commonContracts,
+    ...commonContracts
   },
   [ROPSTEN_ID]: {
     pairs: {
-      "DAI-WETH": "0x1c5DEe94a34D795f9EEeF830B68B80e44868d316",
+      "DAI-WETH": "0x1c5DEe94a34D795f9EEeF830B68B80e44868d316"
     },
     tokens: {
       DAI: "0xaD6D458402F60fD3Bd25163575031ACDce07538D",
-      WETH: "0xc778417E063141139Fce010982780140Aa0cD5Ab",
+      WETH: "0xc778417E063141139Fce010982780140Aa0cD5Ab"
     },
-    ...commonContracts,
-  },
-};
+    ...commonContracts
+  }
+}
+
+export default addresses
