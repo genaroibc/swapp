@@ -81,7 +81,7 @@ export function Exchange({ pools }) {
       0,
       [fromToken, toToken],
       account,
-      Math.floor(Date.now() / 1000) + 60 * 20 // 20 minutes from the current Unix time
+      Math.floor(Date.now() / 1000) + 60 * 20
     ).then(() => {
       setFromValue("0")
     })
@@ -91,9 +91,7 @@ export function Exchange({ pools }) {
     const trimmedValue = value.trim()
 
     try {
-      if (trimmedValue) {
-        parseUnits(trimmedValue)
-
+      if (trimmedValue != null) {
         setFromValue(trimmedValue)
       }
     } catch (error) {

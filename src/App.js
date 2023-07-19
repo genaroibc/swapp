@@ -23,7 +23,7 @@ const App = () => {
       <div className="text-center">
         <h1 className="font-black text-white text-5xl">Swapp</h1>
 
-        <section className="mx-auto max-w-2xl my-8 bg-slate-950 rounded-md">
+        <section className="mx-auto max-w-lg my-8 bg-slate-950 rounded-md">
           {account ? (
             loading ? (
               <Loader title="Loading pools" />
