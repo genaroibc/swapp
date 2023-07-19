@@ -66,7 +66,9 @@ export function Exchange({ pools }) {
     !isApprovalNeeded &&
     !isSwapping &&
     isFromValueGreaterThanZero &&
-    hasEnoughBalance
+    hasEnoughBalance &&
+    toToken !== "" &&
+    toToken != null
 
   const successMessage = getSuccessMessage(swapApproveState, swapExecuteState)
   const failureMessage = getFailureMessage(swapApproveState, swapExecuteState)
