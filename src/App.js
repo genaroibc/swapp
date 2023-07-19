@@ -23,15 +23,15 @@ const App = () => {
       <div className="text-center">
         <h1 className="font-black text-white text-5xl">Swapp</h1>
 
-        <section className="mx-auto max-w-lg my-8 bg-slate-950 rounded-md">
+        <section className="mx-auto max-w-lg my-8 bg-slate-950 min-h-[400px] p-4 rounded-md">
           {account ? (
             loading ? (
-              <Loader title="Loading pools" />
+              <Loader title="Loading pools..." />
             ) : (
               <Exchange pools={pools} />
             )
           ) : (
-            <Loader title="Please connect your wallet" />
+            <Loader title="Connect your wallet" />
           )}
         </section>
       </div>
