@@ -40,7 +40,7 @@ export function AmountOut({
         className="p-4 w-full bg-slate-900 text-white font-black text-3xl rounded-md"
       />
 
-      <div className="absolute right-8 top-1/2 -translate-y-1/2">
+      <div className="absolute right-8 top-1/2 -translate-y-1/2 z-10">
         <div
           className="relative"
           onClick={() => setShowList(showList => !showList)}

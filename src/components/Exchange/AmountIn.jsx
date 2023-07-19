@@ -36,7 +36,7 @@ export function AmountIn({
         className="p-4 w-full bg-slate-900 text-white font-black text-3xl rounded-md"
       />
 
-      <div className="absolute right-8 top-1/2 -translate-y-1/2">
+      <div className="absolute right-8 top-1/2 -translate-y-1/2 z-20">
         <div className="relative">
           <button
             onClick={() => setShowList(showList => !showList)}
@@ -56,7 +56,7 @@ export function AmountIn({
           {showList && (
             <ul
               ref={ref}
-              className="absolute z-10 right-0 bg-slate-950 border-[1px] border-gray-900 w-full mt-2 rounded-lg min-w-[170px] overflow-hidden"
+              className="absolute z-30 right-0 bg-slate-950 border-[1px] border-gray-900 w-full mt-2 rounded-lg min-w-[170px] overflow-hidden"
             >
               {Object.entries(currencies).map(([token, tokenName]) => (
                 <li
