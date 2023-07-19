@@ -1,6 +1,5 @@
 import React from "react"
 import { useEthers } from "@usedapp/core"
-import styles from "./styles"
 import { Loader, WalletButton } from "./components"
 import { Exchange } from "./components/Exchange"
 import { uniswapLogo } from "./assets"
@@ -11,42 +10,30 @@ const App = () => {
   const { loading, pools } = usePools()
 
   return (
-    <main className={styles.container}>
-      <div className={styles.innerContainer}>
-        <header className={styles.header}>
-          <img
-            src={uniswapLogo}
-            alt="uniswap logo"
-            className="object-contain w-16 h-16"
-          />
-          <WalletButton />
-        </header>
+    <main className="max-w-7xl mx-auto bg-slate-900 min-h-screen pb-12">
+      <header className="flex items-center gap-4 justify-between w-full p-4">
+        <img
+          src={uniswapLogo}
+          alt="uniswap logo"
+          className="object-contain w-16 h-16"
+        />
+        <WalletButton />
+      </header>
 
-        <div className={styles.exchangeContainer}>
-          <h1 className={styles.headTitle}>Uniswap 2.0</h1>
+      <div className="text-center">
+        <h1 className="font-black text-white text-5xl">Swapp</h1>
 
-          <p className={styles.subTitle}>
-            Exchange tokens using the uniswap protocol
-          </p>
-
-          <div className={styles.exchangeBoxWrapper}>
-            <div className={styles.exchangeBox}>
-              <div className="pink_gradient" />
-              <section className={styles.exchange}>
-                {account ? (
-                  loading ? (
-                    <Loader title="Loading pools" />
-                  ) : (
-                    <Exchange pools={pools} />
-                  )
-                ) : (
-                  <Loader title="Please connect your wallet" />
-                )}
-              </section>
-              <div className="blue_gradient" />
-            </div>
-          </div>
-        </div>
+        <section className="mx-auto max-w-2xl my-8 bg-slate-950 rounded-md">
+          {account ? (
+            loading ? (
+              <Loader title="Loading pools" />
+            ) : (
+              <Exchange pools={pools} />
+            )
+          ) : (
+            <Loader title="Please connect your wallet" />
+          )}
+        </section>
       </div>
     </main>
   )

@@ -21,7 +21,9 @@ import {
 
 import { ROUTER_ADDRESS } from "../../config"
 import { AmountIn, AmountOut, Balance } from "."
-import styles from "../../styles"
+
+const buttonSharedClassName =
+  "font-semibold text-lg rounded-md mt-4 py-4 px-8 rounded-xl w-full"
 
 export function Exchange({ pools }) {
   const { account } = useEthers()
@@ -118,8 +120,8 @@ export function Exchange({ pools }) {
   }, [failureMessage, successMessage])
 
   return (
-    <section className="flex flex-col w-full items-center">
-      <div className="mb-8">
+    <section className="flex flex-col w-full items-center justify-stretch p-4">
+      <div className="w-full">
         <AmountIn
           value={fromValue}
           onChange={onFromValueChange}
@@ -132,7 +134,22 @@ export function Exchange({ pools }) {
         <Balance tokenBalance={fromTokenBalance} />
       </div>
 
-      <div className="mb-8 w-full">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        fill="none"
+        viewBox="0 0 24 24"
+        strokeWidth={1.5}
+        stroke="currentColor"
+        className="w-6 h-6 mb-6"
+      >
+        <path
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          d="M12 4.5v15m0 0l6.75-6.75M12 19.5l-6.75-6.75"
+        />
+      </svg>
+
+      <div className="w-full">
         <AmountOut
           fromToken={fromToken}
           toToken={toToken}
@@ -154,7 +171,7 @@ export function Exchange({ pools }) {
             canApprove
               ? "bg-site-pink text-white"
               : "bg-site-dim2 text-site-dim2"
-          } ${styles.actionButton}`}
+          } ${buttonSharedClassName}`}
         >
           {isApproving ? "approving..." : "approve"}
         </button>
@@ -163,8 +180,8 @@ export function Exchange({ pools }) {
           disabled={!canSwap}
           onClick={onSwapRequested}
           className={`${
-            canSwap ? "bg-site-pink text-white" : "bg-site-dim2 text-site-dim2"
-          } ${styles.actionButton}`}
+            canSwap ? "bg-site-pink text-white" : "bg-gray-900 text-white/40"
+          } ${buttonSharedClassName}`}
         >
           {isSwapping
             ? "swapping..."
@@ -175,9 +192,13 @@ export function Exchange({ pools }) {
       )}
 
       {failureMessage && !resetState ? (
-        <p className={styles.message}>{failureMessage}</p>
+        <p className="text-lg text-red-500 font-semibold my-2">
+          {failureMessage}
+        </p>
       ) : successMessage ? (
-        <p className={styles.message}>{successMessage}</p>
+        <p className="text-lg text-green-500 font-semibold my-2">
+          {successMessage}
+        </p>
       ) : null}
     </section>
   )

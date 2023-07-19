@@ -1,5 +1,4 @@
 import { shortenAddress, useEthers, useLookupAddress } from "@usedapp/core"
-import styles from "../styles"
 import { useEffect, useState } from "react"
 
 export function WalletButton() {
@@ -23,7 +22,10 @@ export function WalletButton() {
   }, [account, ens, setDisplayAccountAddress])
 
   return (
-    <button onClick={handleClick} className={styles.walletButton}>
+    <button
+      onClick={handleClick}
+      className="bg-site-pink border-none outline-none px-6 py-2 font-poppins font-bold text-lg text-white rounded-3xl leading-[24px] hover:bg-pink-600 transition-all"
+    >
       {displayAccountAddress ?? "Connect Wallet"}
     </button>
   )

@@ -57,3 +57,10 @@ input[type="number"] {
     #1bb2de 99.52%
   );
 }
+body {
+  background-color: rgb(2 6 23);
+}
+
+button:disabled {
+  cursor: not-allowed !important;
+}
